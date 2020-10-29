@@ -65,14 +65,19 @@ async function sourceProducts(
   createContentDigest,
   createNodeId
 ) {
-  const products = await paystack.products()
+  const products = await paystack.getProducts()
 
   // loop through data and create Gatsby nodes
-  products.forEach((product) => {
+  for (let product of products) {
+    const productOptions = await paystack.getProductOptions(product.id)
+    const productVariants = await paystack.getProductVariants(product.id)
     createNode({
       ...product,
+      options: productOptions === [] ? undefined : productOptions,
+      variants: productVariants === [] ? undefined : productVariants,
       files: product.files && product.files.length > 0 ? product.files : [],
       id: createNodeId(`${PRODUCT_NODE_TYPE}-${product.id}`),
+      product_id: product.id,
       parent: null,
       children: [],
       internal: {
@@ -81,7 +86,7 @@ async function sourceProducts(
         contentDigest: createContentDigest(product)
       }
     })
-  })
+  }
 }
 
 async function sourceCustomers(
@@ -90,7 +95,7 @@ async function sourceCustomers(
   createContentDigest,
   createNodeId
 ) {
-  const customers = await paystack.customers()
+  const customers = await paystack.getCustomers()
 
   // loop through data and create Gatsby nodes
   customers.forEach((customer) => {
