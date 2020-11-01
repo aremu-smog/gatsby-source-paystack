@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "12.18.3"
+deploy:
+  skip-cleanup: true
+  provider: npm
+  email: mrkalejaiye@gmail.com
+  api_key:
+    secure: 76ac2974-2e36-4146-9278-7d65710e7321
+branches:
+  only:
+    - master
