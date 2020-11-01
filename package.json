@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-paystack",
-  "version": "1.0.1",
-  "description": "A minimal boilerplate for the essential files Gatsby looks for in a plugin",
+  "version": "1.0.2",
+  "description": "Gatsby source plugin for pulling Paystack Commerce data into your site ",
   "main": "gatsby-node.js",
   "scripts": {
     "build": "babel src --out-dir ./ --source-maps",
@@ -9,9 +9,10 @@
   },
   "keywords": [
     "gatsby",
-    "gatsby-plugin"
+    "gatsby-plugin",
+    "paystack"
   ],
-  "author": "Kyle Gill <kyle.robert.gill@gmail.com>",
+  "author": "Tolu Kalejaiye",
   "license": "0BSD",
   "dependencies": {
     "axios": "^0.21.0",
