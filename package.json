@@ -2,7 +2,7 @@
   "name": "gatsby-starter-plugin",
   "version": "1.0.1",
   "description": "A minimal boilerplate for the essential files Gatsby looks for in a plugin",
-  "main": "index.js",
+  "main": "gatsby-node.js",
   "scripts": {
     "build": "babel src --out-dir ./ --source-maps",
     "prepare": "npm run build"
@@ -16,5 +16,11 @@
   "dependencies": {
     "axios": "^0.21.0",
     "gatsby-source-filesystem": "^2.3.35"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1"
   }
 }
